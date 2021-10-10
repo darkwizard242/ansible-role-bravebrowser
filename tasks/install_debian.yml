@@ -1,0 +1,21 @@
+---
+# tasks file for bravebrowser - Debian/Ubuntu family
+
+- name: Debian/Ubuntu Family | Add gpg signing key for {{ bravebrowser_app }}
+  apt_key:
+    url: "{{ bravebrowser_repo_debian_gpg_key }}"
+    state: present
+
+- name: Debian/Ubuntu Family | Adding repository "{{ bravebrowser_repo_debian }}"
+  apt_repository:
+    repo: "{{ bravebrowser_repo_debian }}"
+    state: "{{ bravebrowser_repo_debian_desired_state }}"
+    filename: "{{ bravebrowser_repo_debian_filename }}"
+    update_cache: yes
+
+- name: Debian/Ubuntu Family | Installing {{ bravebrowser_app }}
+  apt:
+    name: "{{ bravebrowser_app }}"
+    state: "{{ bravebrowser_app_desired_state }}"
+    force_apt_get: yes
+    update_cache: yes

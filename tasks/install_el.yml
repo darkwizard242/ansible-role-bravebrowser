@@ -1,0 +1,20 @@
+---
+# tasks file for bravebrowser - EL Family
+
+
+- name: EL Family | Adding repository for {{ bravebrowser_repo_el }}
+  yum_repository:
+    name: "{{ bravebrowser_repo_el_name }}"
+    description: "{{ bravebrowser_repo_el_description }}"
+    baseurl: "{{ bravebrowser_repo_el }}"
+    gpgcheck: "{{ bravebrowser_repo_el_gpgcheck }}"
+    gpgkey: "{{ bravebrowser_repo_el_gpgkey }}"
+    file: "{{ bravebrowser_repo_el_filename }}"
+    state: "{{ bravebrowser_repo_el_desired_state }}"
+    enabled: "{{ bravebrowser_repo_el_enabled }}"
+
+- name: EL Family | Installing {{ bravebrowser_app }}
+  yum:
+    name: "{{ bravebrowser_app }}"
+    state: "{{ bravebrowser_app_desired_state }}"
+    update_cache: yes

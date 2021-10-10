@@ -1,0 +1,21 @@
+---
+# defaults file for bravebrowser
+
+bravebrowser_app: brave-browser
+bravebrowser_app_desired_state: present
+
+# Debian family based
+bravebrowser_repo_debian_gpg_key: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+bravebrowser_repo_debian: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+bravebrowser_repo_debian_filename: "{{ bravebrowser_app }}"
+bravebrowser_repo_debian_desired_state: present
+
+# EL family based
+bravebrowser_repo_el: "https://brave-browser-rpm-release.s3.brave.com/x86_64/"
+bravebrowser_repo_el_name: brave-browser
+bravebrowser_repo_el_description: brave-browser
+bravebrowser_repo_el_gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+bravebrowser_repo_el_gpgcheck: yes
+bravebrowser_repo_el_enabled: yes
+bravebrowser_repo_el_filename: "{{ bravebrowser_app }}"
+bravebrowser_repo_el_desired_state: present

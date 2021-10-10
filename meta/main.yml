@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  role_name: bravebrowser
+  author: darkwizard242
+  description: Installs/Uninstalls 'Brave Browser'. The browser reimagined.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+    - name: EL
+      versions:
+        - 8
+
+  galaxy_tags:
+    - bravebrowser
+    - brave
+    - browser
+    - privacy
+    - system
+    - os
+
+dependencies: []

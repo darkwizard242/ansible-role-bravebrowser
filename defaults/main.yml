@@ -5,8 +5,11 @@ bravebrowser_app: brave-browser
 bravebrowser_app_desired_state: present
 
 # Debian family based
-bravebrowser_repo_debian_gpg_key: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-bravebrowser_repo_debian: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+bravebrowser_repo_debian_url: "https://brave-browser-apt-release.s3.brave.com"
+bravebrowser_repo_debian_gpg_key: brave-browser-archive-keyring.gpg
+bravebrowser_repo_debian_gpg_key_url: "{{ bravebrowser_repo_debian_url }}/{{ bravebrowser_repo_debian_gpg_key }}"
+bravebrowser_repo_debian_gpg_key_dest: "/usr/share/keyrings/{{ bravebrowser_repo_debian_gpg_key }}"
+bravebrowser_repo_debian: "deb [signed-by={{ bravebrowser_repo_debian_gpg_key_dest }} arch=amd64] {{ bravebrowser_repo_debian_url }} stable main"
 bravebrowser_repo_debian_filename: "{{ bravebrowser_app }}"
 bravebrowser_repo_debian_desired_state: present
 

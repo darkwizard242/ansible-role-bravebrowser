@@ -14,6 +14,7 @@
     state: "{{ bravebrowser_repo_debian_desired_state }}"
     filename: "{{ bravebrowser_repo_debian_filename }}"
     update_cache: yes
+  become: true
 
 - name: Debian/Ubuntu Family | Installing {{ bravebrowser_app }}
   ansible.builtin.apt:
@@ -21,3 +22,4 @@
     state: "{{ bravebrowser_app_desired_state }}"
     force_apt_get: yes
     update_cache: yes
+  become: true

@@ -44,8 +44,11 @@ Variable                               | Description
 -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 bravebrowser_app                       | Name of Brave browser application package require to be installed i.e. `brave-browser`
 bravebrowser_app_desired_state         | State of the Brave browser package. Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
+bravebrowser_repo_debian_url           | Brave browser repo URL for Debain family systems.
 bravebrowser_repo_debian_gpg_key       | Brave browser key required on Debian family systems.
-bravebrowser_repo_debian               | Brave browser repo URL for Debain family systems.
+bravebrowser_repo_debian_gpg_key_url   | Brave browser gpg key URL required on Debian family system
+bravebrowser_repo_debian_gpg_key_dest  | Brave browser gpg key path to store locally on Debian family system
+bravebrowser_repo_debian               | Brave browser repo string for Debain family systems.
 bravebrowser_repo_debian_filename      | Name of the repository file that will be stored at `/etc/apt/sources.list.d/` on Debian based systems.
 bravebrowser_repo_debian_desired_state | `present` indicates creating the repository file if it doesn't exist on Debian based systems. Alternative is `absent` (not recommended as it will prevent from installation of **brave-browser** package).
 bravebrowser_repo_el                   | Repository `baseurl` for Brave browser on EL based systems.

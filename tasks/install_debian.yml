@@ -2,20 +2,24 @@
 # tasks file for bravebrowser - Debian/Ubuntu family
 
 - name: Debian/Ubuntu Family | Add gpg signing key for {{ bravebrowser_app }}
-  apt_key:
-    url: "{{ bravebrowser_repo_debian_gpg_key }}"
-    state: present
+  ansible.builtin.get_url:
+    url: "{{ bravebrowser_repo_debian_gpg_key_url }}"
+    dest: "{{ bravebrowser_repo_debian_gpg_key_dest }}"
+    mode: "0644"
+  become: true
 
-- name: Debian/Ubuntu Family | Adding repository "{{ bravebrowser_repo_debian }}"
-  apt_repository:
+- name: "Debian/Ubuntu Family | Adding repository {{ bravebrowser_repo_debian }}"
+  ansible.builtin.apt_repository:
     repo: "{{ bravebrowser_repo_debian }}"
     state: "{{ bravebrowser_repo_debian_desired_state }}"
     filename: "{{ bravebrowser_repo_debian_filename }}"
     update_cache: yes
+  become: true
 
 - name: Debian/Ubuntu Family | Installing {{ bravebrowser_app }}
-  apt:
+  ansible.builtin.apt:
     name: "{{ bravebrowser_app }}"
     state: "{{ bravebrowser_app_desired_state }}"
     force_apt_get: yes
     update_cache: yes
+  become: true

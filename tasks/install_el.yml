@@ -3,7 +3,7 @@
 
 
 - name: EL Family | Adding repository for {{ bravebrowser_repo_el }}
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: "{{ bravebrowser_repo_el_name }}"
     description: "{{ bravebrowser_repo_el_description }}"
     baseurl: "{{ bravebrowser_repo_el }}"
@@ -14,7 +14,7 @@
     enabled: "{{ bravebrowser_repo_el_enabled }}"
 
 - name: EL Family | Installing {{ bravebrowser_app }}
-  yum:
+  ansible.builtin.yum:
     name: "{{ bravebrowser_app }}"
     state: "{{ bravebrowser_app_desired_state }}"
     update_cache: yes

@@ -13,14 +13,10 @@ galaxy_info:
         - noble
         - focal
         - jammy
-        - bionic
     - name: Debian
       versions:
         - bullseye
         - buster
-    - name: EL
-      versions:
-        - 8
 
   galaxy_tags:
     - bravebrowser
